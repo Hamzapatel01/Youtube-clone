@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const Appslice = createSlice({
     name:"app",
     initialState:{
-        open:false, 
+        open:true, 
         video:[],
         category:"All",
         searchSuggestion:[],
