@@ -11,8 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-constant
-postcss.config.js
+constant/
+postcss.config.js/
 
 # Editor directories and files
 .vscode/*
