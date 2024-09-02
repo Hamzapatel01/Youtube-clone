@@ -5,9 +5,11 @@ import React from "react";
 import { MdOutlineSubscriptions, MdOutlineHistory, MdOutlineVideoLibrary, MdOutlineWatchLater, MdOutlineThumbUp, MdOutlinePersonalVideo } from "react-icons/md";
 import Avatar from "react-avatar";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 // Sidebar items
 const sidebarItems = [
-  { icon: <CiHome size="24px" />, title: "Home" },
+  { icon: <CiHome size="24px" />, title: "Home", path: "/" }, // Added path property
   { icon: <SiYoutubeshorts size="24px" />, title: "Shorts" },
   { icon: <MdOutlineSubscriptions size="24px" />, title: "Subscriptions" }
 ];
@@ -29,6 +31,7 @@ const subscriptions = [
 
 const Sidebar = () => {
   const open = useSelector((store) => store.app.open);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   return (
     <div style={{
@@ -40,7 +43,11 @@ const Sidebar = () => {
       {/* Main Navigation */}
       <div>
         {sidebarItems.map((item, index) => (
-          <div key={index} className={`flex items-center p-2  my-3 ml-2 cursor-pointer rounded-lg hover:bg-gray-200 ${open ? "justify-start" : "justify-center"}`}>
+          <div
+            key={index}
+            className={`flex items-center p-2 my-3 ml-2 cursor-pointer rounded-lg hover:bg-gray-200 ${open ? "justify-start" : "justify-center"}`}
+            onClick={() => item.path && navigate(item.path)} // Navigate to path if exists
+          >
             {item.icon}
             <p className={`ml-5 ${open ? "" : "hidden"}`}>{item.title}</p>
           </div>
