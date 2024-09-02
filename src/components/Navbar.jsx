@@ -11,6 +11,9 @@ import { toggleSidebar, setCategory, setSearchSuggestion } from "../utils/Appsli
 import { SEARCH_SUGGESTIONS_API } from "../constant/Api-youtube";
 import axios from "axios";
 
+// Use SEARCH_SUGGESTIONS_API in your component
+
+
 const Navbar = () => {
   const [input, setInput] = useState("");
   const [suggestion, setSuggestion] = useState(false);
